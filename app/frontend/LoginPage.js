@@ -3,7 +3,7 @@ import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
 
-import auth from '@react-native-firebase/auth';
+import auth from 'firebase/auth';
 
 export default function LoginPage({ navigation }) {
   return (
@@ -44,7 +44,10 @@ export default function LoginPage({ navigation }) {
       </TouchableOpacity>
 
       {/* Sign In Button */}
-      <TouchableOpacity style={styles.signInButton}>
+      <TouchableOpacity
+        style={styles.signInButton}
+        onPress={() => navigation.navigate('Home')} // Navigate to Home on Sign In
+      >
         <Text style={styles.signInButtonText}>Sign In</Text>
       </TouchableOpacity>
 
@@ -75,6 +78,29 @@ export default function LoginPage({ navigation }) {
     </View>
   );
 }
+
+const handleLogin = async () => { // UPDATE THis--------------------------------------------------------------
+  try {
+    const response = await fetch("http://127.0.0.1:5000/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }), // Use the state variables here
+    });
+
+    const data = await response.json();
+    if (response.ok) {
+      console.log("Login successful:", data);
+    } else {
+      console.error("Login failed:", data.message);
+      alert(data.message);
+    }
+  } catch (error) {
+    console.error("Error during login:", error);
+    alert("An error occurred. Please try again later.");
+  }
+};
 
 const styles = StyleSheet.create({
   container: {
