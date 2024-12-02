@@ -44,7 +44,7 @@ export default function HomePage({ navigation }) {
 
       {/* Bottom Navigation Bar */}
       <View style={styles.navbar}>
-        <TouchableOpacity onPress={() => alert('Tests')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Data')}>
           <MaterialIcons name="assignment" size={30} color="#fff" />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => alert('Home')}>

@@ -8,6 +8,9 @@ import WelcomePage from './frontend/WelcomePage';
 import LoginPage from './frontend/LoginPage';
 import SignupPage from './frontend/SignupPage';
 import HomePage from './frontend/HomePage';
+import DataPage from './frontend/DataPage';
+import LeftFootDataPage from './frontend/LeftFootDataPage';
+import RightFootDataPage from './frontend/RightFootDataPage';
 
 const Stack = createStackNavigator();
 
@@ -33,6 +36,21 @@ export default function App() {
         <Stack.Screen
           name="Home"
           component={HomePage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Data"
+          component={DataPage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="LeftFootData"
+          component={LeftFootDataPage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="RightFootData"
+          component={RightFootDataPage}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
