@@ -37,7 +37,7 @@ export default function HomePage({ navigation }) {
       {/* Begin Test Button */}
       <TouchableOpacity
         style={styles.testButton}
-        onPress={() => alert('Test Started!')}
+        onPress={() => navigation.navigate('Instructions')}
       >
         <Text style={styles.testButtonText}>Begin New Test</Text>
       </TouchableOpacity>

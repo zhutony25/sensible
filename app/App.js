@@ -11,6 +11,9 @@ import HomePage from './frontend/HomePage';
 import DataPage from './frontend/DataPage';
 import LeftFootDataPage from './frontend/LeftFootDataPage';
 import RightFootDataPage from './frontend/RightFootDataPage';
+import InstructionsPage from './frontend/InstructionsPage';
+import TestPage from './frontend/TestPage';
+import EndTestPage from './frontend/EndTestPage';
 
 const Stack = createStackNavigator();
 
@@ -51,6 +54,21 @@ export default function App() {
         <Stack.Screen
           name="RightFootData"
           component={RightFootDataPage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Instructions"
+          component={InstructionsPage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Test"
+          component={TestPage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="EndTest"
+          component={EndTestPage}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
