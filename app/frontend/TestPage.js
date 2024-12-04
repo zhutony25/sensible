@@ -21,7 +21,7 @@ export default function TestPage({ navigation }) {
     startProgress();
     const loadAudio = async () => {
       const { sound } = await Audio.Sound.createAsync(
-        require('./assets/frequencies/SensibleTest.mp4')
+        require('../assets/frequencies/SensibleTest.mp4')
       );
       setSound(sound);
     };
