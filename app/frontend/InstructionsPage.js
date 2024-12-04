@@ -18,8 +18,8 @@ export default function InstructionsPage({ navigation }) {
     { id: '8', title: 'Left Small Toe' },
     { id: '9', title: 'Right Outside Ankle' },
     { id: '10', title: 'Left Outside Ankle' },
-    { id: '7', title: 'Right Inside Ankle' },
-    { id: '7', title: 'Left Inside Ankle' },
+    { id: '11', title: 'Right Inside Ankle' },
+    { id: '12', title: 'Left Inside Ankle' },
   ]
 
   const handleStartTest = () => {
