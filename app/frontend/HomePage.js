@@ -14,7 +14,7 @@ export default function HomePage({ navigation }) {
       {/* Welcome Text */}
       <View style={styles.textContainer}>
         <Text style={styles.welcomeText}>Welcome Cara!</Text> {/* need to pull first name from */}
-        <Text style={styles.subText}>Click below to begin test</Text>
+        <Text style={styles.subText}>Tap below to start</Text>
       </View>
 
       {/* Pulse Effect Circle */}
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 50,
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: 40,
   },
   testButtonText: {
     color: '#FFFFFF',
@@ -129,5 +129,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#4A90E2',
     width: '100%',
     paddingVertical: 10,
+    marginBottom: -20,
   },
 });
