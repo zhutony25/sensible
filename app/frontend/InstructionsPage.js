@@ -1,7 +1,8 @@
 // app/frontend/InstructionsPage.js
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, FlatList } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { Modal } from 'react-native-web';
 
 export default function InstructionsPage({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -17,8 +18,8 @@ export default function InstructionsPage({ navigation }) {
     { id: '8', title: 'Left Small Toe' },
     { id: '9', title: 'Right Outside Ankle' },
     { id: '10', title: 'Left Outside Ankle' },
-    { id: '7', title: 'Right Inside Ankle' },
-    { id: '7', title: 'Left Inside Ankle' },
+    { id: '11', title: 'Right Inside Ankle' },
+    { id: '12', title: 'Left Inside Ankle' },
   ]
 
   const handleStartTest = () => {
@@ -62,7 +63,7 @@ export default function InstructionsPage({ navigation }) {
       </ScrollView>
 
       {/* Start Test Button */}
-      <TouchableOpacity style={styles.startTestButton} onPress={() => setModalVisible(true)}>
+      <TouchableOpacity style={styles.startTestButton} onPress={() => navigation.navigate("Test")}>
         <Text style={styles.buttonText}>Start Test</Text>
       </TouchableOpacity>
       <Modal visible={modalVisible} animationType="slide">
