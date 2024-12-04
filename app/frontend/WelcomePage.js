@@ -2,13 +2,19 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
+// get the logo
+import SensibleLogo from '../assets/images/sensible_logo.png';
+
 export default function WelcomePage({ navigation }) {
   return (
     <View style={styles.container}>
-      {/* Top Section with Logo, Title, and Subtitle */}
+      {/* Top Section */}
       <View style={styles.topSection}>
-        <Text style={styles.title}>Sensible</Text>
-        <Text style={styles.subtitle}>Short Slogan / Description</Text>
+        <Image source={require('../assets/images/sensible_logo.png')} style={styles.logo} />
+        <Text style={styles.title}>
+          <Text style={styles.titleHighlight}>SEN</Text>
+          <Text style={styles.titleRest}>SIBLE</Text>
+        </Text>
       </View>
 
       {/* Bottom Section with Buttons */}
@@ -35,25 +41,28 @@ const styles = StyleSheet.create({
   },
   topSection: {
     alignItems: 'center',
-    marginTop: 50,
+    marginTop: 100,
   },
   logo: {
-    width: 120,
-    height: 120,
-    marginBottom: 20,
-    borderRadius: 60,
+    width: 180, // Adjust width to match the logo's aspect ratio
+    height: 180, // Adjust height to match the logo's aspect ratio
+    marginBottom: 10,
   },
   title: {
-    fontSize: 36,
+    fontSize: 30,
     fontWeight: '300',
-    color: '#000000',
+    color: '#000000', 
     marginBottom: 5,
   },
-  subtitle: {
-    fontSize: 16,
-    fontWeight: '500',
-    color: '#000000',
-    marginBottom: 40, 
+  titleHighlight: {
+    fontsize: 50,
+    color: '#3c4aa3',
+    fontWeight: 'bold', 
+  },
+  titleRest: {
+    fontsize: 50,
+    color: '#67bcd6', 
+    fontWeight: 'bold',
   },
   buttonContainer: {
     width: '100%',
@@ -61,7 +70,7 @@ const styles = StyleSheet.create({
     paddingBottom: 30, 
   },
   loginButton: {
-    backgroundColor: '#4A90E2',
+    backgroundColor: '#3c4aa3',
     borderRadius: 25,
     paddingVertical: 12,
     width: '80%',
@@ -74,16 +83,15 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   signupButton: {
-    backgroundColor: '#D0E8FF',
+    backgroundColor: '#67bcd6',
     borderRadius: 25,
     paddingVertical: 12,
     width: '80%',
     alignItems: 'center',
   },
   signupButtonText: {
-    color: '#4A90E2',
+    color: '#000000',
     fontSize: 18,
     fontWeight: '600',
   },
 });
-
