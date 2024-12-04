@@ -4,6 +4,23 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-nati
 import { Ionicons } from '@expo/vector-icons';
 
 export default function InstructionsPage({ navigation }) {
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const buttonData = [
+    { id: '1', title: 'Right Knee' },
+    { id: '2', title: 'Left Knee' },
+    { id: '3', title: 'Right Heel' },
+    { id: '4', title: 'Left Heel' },
+    { id: '5', title: 'Right Big Toe' },
+    { id: '6', title: 'Left Big Toe' },
+    { id: '7', title: 'Right Small Toe' },
+    { id: '8', title: 'Left Small Toe' },
+    { id: '9', title: 'Right Outside Ankle' },
+    { id: '10', title: 'Left Outside Ankle' },
+    { id: '7', title: 'Right Inside Ankle' },
+    { id: '7', title: 'Left Inside Ankle' },
+  ]
+
   const handleStartTest = () => {
     alert('Test started!');
   };
@@ -45,9 +62,26 @@ export default function InstructionsPage({ navigation }) {
       </ScrollView>
 
       {/* Start Test Button */}
-      <TouchableOpacity style={styles.startTestButton} onPress={() => navigation.navigate('Test')}>
+      <TouchableOpacity style={styles.startTestButton} onPress={() => setModalVisible(true)}>
         <Text style={styles.buttonText}>Start Test</Text>
       </TouchableOpacity>
+      <Modal visible={modalVisible} animationType="slide">
+        <View style={styles.modalContainer}>
+          <FlatList
+            data={buttonData}
+            renderItem={({ item }) => (
+              <Button
+                title={item.title}
+                onPress={() => {
+                  setModalVisible(false);
+                  navigation.navigate('Home');
+                }}
+              />
+            )}
+            keyExtractor={(item) => item.id}
+          />
+        </View>
+      </Modal>
     </View>
   );
 }
@@ -103,5 +137,12 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: '600',
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white',
+    padding: 20,
   },
 });

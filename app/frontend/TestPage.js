@@ -8,15 +8,30 @@ import {
   Animated,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { Audio } from "expo-av";
 
 export default function TestPage({ navigation }) {
   const [progress, setProgress] = useState(0); // Progress bar state
   const scale = useRef(new Animated.Value(1)).current; // For pulsing animation
   const intervalRef = useRef(null); // Reference to track the interval
+  const [sound, setSound] = useState(); // have a variable for the sound audio
 
   // Start the timer and progress bar
   useEffect(() => {
     startProgress();
+    const loadAudio = async () => {
+      const { sound } = await Audio.Sound.createAsync(
+        require('./assets/frequencies/SensibleTest.mp4')
+      );
+      setSound(sound);
+    };
+
+    loadAudio();
+
+    if (sound) {
+      sound.unloadAsync();
+    }
+
     return () => clearProgress(); // Clear the timer when the component unmounts
   }, []);
 
@@ -35,11 +50,12 @@ export default function TestPage({ navigation }) {
   };
 
   // Function to clear the timer and reset progress
-  const clearProgress = () => {
+  const clearProgress = async () => {
     if (intervalRef.current) {
       clearInterval(intervalRef.current); // Clear the interval
       intervalRef.current = null;
     }
+    await sound.pauseAsync(); // stop the audio
     setProgress(0); // Reset progress to 0
   };
 
@@ -114,7 +130,7 @@ export default function TestPage({ navigation }) {
 
       {/* Stop Test Button */}
       <TouchableOpacity style={styles.stopTestButton} onPress={handleStopTest}>
-        <Text style={styles.stopTestText}>Stop Test</Text>
+        <Text style={styles.stopTestText}>Stop Test (I feel the vibration)</Text>
       </TouchableOpacity>
     </View>
   );
