@@ -24,15 +24,22 @@ export default function TestPage({ navigation }) {
         require('../assets/frequencies/SensibleTest.mp4')
       );
       setSound(sound);
+      await sound.playAsync();
     };
 
     loadAudio();
 
-    if (sound) {
-      sound.unloadAsync();
-    }
+    // if (sound) {
+    //   sound.unloadAsync();
+    // }
 
-    return () => clearProgress(); // Clear the timer when the component unmounts
+    return () => {
+      if(sound) {
+        sound.unloadAsync;
+
+      }
+      clearProgress();
+    } // Clear the timer when the component unmounts
   }, []);
 
   // Function to start the progress bar
