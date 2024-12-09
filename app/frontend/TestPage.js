@@ -34,9 +34,9 @@ export default function TestPage({ navigation }) {
     //   sound.unloadAsync();
     // }
 
-    return () => {
+    return async () => {
       if (sound) {
-        sound.unloadAsync;
+        await sound.unloadAsync;
 
       }
       clearProgress();
