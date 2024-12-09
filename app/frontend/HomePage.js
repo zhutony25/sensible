@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function HomePage({ navigation }) {
   return (
@@ -44,11 +44,11 @@ export default function HomePage({ navigation }) {
 
       {/* Bottom Navigation Bar */}
       <View style={styles.navbar}>
-        <TouchableOpacity onPress={() => navigation.navigate('Data')}>
-          <MaterialIcons name="assignment" size={30} color="#fff" />
+        <TouchableOpacity onPress={() => alert('Already on Home Page!')}>
+          <Ionicons name="home" size={30} color="#fff" />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => alert('Home')}>
-          <Ionicons name="home-outline" size={30} color="#fff" />
+        <TouchableOpacity onPress={() => navigation.navigate('Data')}>
+          <Ionicons name="clipboard-outline" size={30} color="#fff" />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('Login')}>
           <Ionicons name="person-outline" size={30} color="#fff" />
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 50,
     alignItems: 'center',
-    marginBottom: 40,
+    marginBottom: 100,
   },
   testButtonText: {
     color: '#FFFFFF',
@@ -130,5 +130,7 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingVertical: 10,
     marginBottom: -20,
+    position: 'absolute',
+    bottom: 20
   },
 });

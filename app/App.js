@@ -2,6 +2,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { LogBox } from 'react-native';
 
 // Import screens
 import WelcomePage from './frontend/WelcomePage';
@@ -16,6 +17,7 @@ import TestPage from './frontend/TestPage';
 import EndTestPage from './frontend/EndTestPage';
 
 const Stack = createStackNavigator();
+LogBox.ignoreAllLogs();
 
 export default function App() {
   return (

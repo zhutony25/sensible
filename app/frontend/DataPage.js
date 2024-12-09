@@ -26,6 +26,19 @@ export default function DataPage({ navigation }) {
       >
         <Text style={styles.buttonText}>Right Foot</Text>
       </TouchableOpacity>
+
+      {/* Bottom Navigation Bar */}
+      <View style={styles.navbar}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Ionicons name="home-outline" size={30} color="#fff" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => alert("Already on Data Page!")}>
+          <Ionicons name="clipboard" size={30} color="#fff" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+          <Ionicons name="person-outline" size={30} color="#fff" />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -60,5 +73,15 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: '600',
+  },
+  navbar: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    backgroundColor: '#4A90E2',
+    width: '100%',
+    paddingVertical: 10,
+    marginBottom: -20,
+    position: 'absolute',
+    bottom: 20
   },
 });

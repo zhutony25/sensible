@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Audio } from "expo-av";
+import { StackActions } from "@react-navigation/native";
 
 export default function TestPage({ navigation }) {
   const [progress, setProgress] = useState(0); // Progress bar state
@@ -34,7 +35,7 @@ export default function TestPage({ navigation }) {
     // }
 
     return () => {
-      if(sound) {
+      if (sound) {
         sound.unloadAsync;
 
       }
@@ -69,7 +70,7 @@ export default function TestPage({ navigation }) {
   // Handle the Stop Test button
   const handleStopTest = () => {
     clearProgress(); // Clear the progress
-    navigation.navigate("Home"); // Navigate back to the Home page
+    navigation.dispatch(StackActions.popTo("Home")); // Navigate back to the Home page
   };
 
   // Pulsing animation logic
@@ -92,11 +93,6 @@ export default function TestPage({ navigation }) {
 
   return (
     <View style={styles.container}>
-      {/* Info Icon */}
-      <TouchableOpacity style={styles.infoIcon}>
-        <Text style={styles.infoText}>ℹ</Text>
-      </TouchableOpacity>
-
       {/* Progress Bar */}
       <View style={styles.progressContainer}>
         <Text style={styles.progressLabel}>Start</Text>
@@ -131,13 +127,13 @@ export default function TestPage({ navigation }) {
       </Animated.View>
 
       {/* Test in Progress Button */}
-      <TouchableOpacity style={styles.testButton}>
-        <Text style={styles.testButtonText}>Test in Progress</Text>
+      <TouchableOpacity style={styles.stopTestButton}>
+        <Text style={styles.stopTestText}>Test in Progress</Text>
       </TouchableOpacity>
 
       {/* Stop Test Button */}
-      <TouchableOpacity style={styles.stopTestButton} onPress={handleStopTest}>
-        <Text style={styles.stopTestText}>Stop Test (I feel the vibration)</Text>
+      <TouchableOpacity style={styles.testButton} onPress={handleStopTest}>
+        <Text style={styles.testButtonText}>Stop Test (I feel the vibration)</Text>
       </TouchableOpacity>
     </View>
   );
