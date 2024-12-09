@@ -205,11 +205,11 @@ const styles = StyleSheet.create({
   },
   testButton: {
     backgroundColor: "#B8A9C9",
-    borderRadius: 25,
+    borderRadius: 30,
     paddingVertical: 15,
-    paddingHorizontal: 50,
+    paddingHorizontal: 30,
     alignItems: "center",
-    marginBottom: 20,
+    marginBottom: 50,
   },
   testButtonText: {
     color: "#FFFFFF",
@@ -217,7 +217,7 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
   stopTestButton: {
-    marginBottom: 40,
+    marginBottom: 60,
   },
   stopTestText: {
     fontSize: 16,
