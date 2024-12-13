@@ -4,4 +4,4 @@ the gold standard VPT test into a an app form factor, relaying changes in neurop
 the patient's healthcare provider. In doing so we hope to enable early intervention and
 prevent diabetic amputations.
 
-Designed as part of the fall 2024 Texas Convergent build team competition.
+Designed as part of the fall 2024 Texas Convergent build team competition; named best product & pitch.
